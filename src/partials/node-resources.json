@@ -403,7 +403,7 @@
   ],
   "outputs": {
     "jumpboxssh": {
-      "value": "[reference('jumpbox').outputs.ssh.value]",
+      "value": "[reference('comvita-es-jumpbox').outputs.ssh.value]",
       "type": "string"
     }
   }
