@@ -27,9 +27,9 @@
   "resources": [
     {
       "apiVersion": "2017-10-01",
-      "name": "es-internal-lb",
+      "name": "comvita-es-internal-lb",
       "type": "Microsoft.Network/loadBalancers",
-      "location": "[parameters('networkSettings').location]",
+      "location": "[resourceGroup().location]",
       "tags": {
         "provider": "[toUpper(parameters('elasticTags').provider)]"
       },
@@ -56,10 +56,10 @@
             "name": "es-http-internal",
             "properties": {
               "frontendIPConfiguration": {
-                "id": "[concat(resourceId('Microsoft.Network/loadBalancers','es-internal-lb'),'/frontendIPConfigurations/LBFE')]"
+                "id": "[concat(resourceId('Microsoft.Network/loadBalancers','comvita-es-internal-lb'),'/frontendIPConfigurations/LBFE')]"
               },
               "backendAddressPool": {
-                "id": "[concat(resourceId('Microsoft.Network/loadBalancers','es-internal-lb'),'/backendAddressPools/LBBE')]"
+                "id": "[concat(resourceId('Microsoft.Network/loadBalancers','comvita-es-internal-lb'),'/backendAddressPools/LBBE')]"
               },
               "protocol": "Tcp",
               "frontendPort": 9200,
@@ -67,7 +67,7 @@
               "enableFloatingIP": false,
               "idleTimeoutInMinutes": 5,
               "probe": {
-                "id": "[concat(resourceId('Microsoft.Network/loadBalancers','es-internal-lb'),'/probes/es-probe-internal-http')]"
+                "id": "[concat(resourceId('Microsoft.Network/loadBalancers','comvita-es-internal-lb'),'/probes/es-probe-internal-http')]"
               }
             }
           },
@@ -75,10 +75,10 @@
             "name": "es-transport-internal",
             "properties": {
               "frontendIPConfiguration": {
-                "id": "[concat(resourceId('Microsoft.Network/loadBalancers','es-internal-lb'),'/frontendIPConfigurations/LBFE')]"
+                "id": "[concat(resourceId('Microsoft.Network/loadBalancers','comvita-es-internal-lb'),'/frontendIPConfigurations/LBFE')]"
               },
               "backendAddressPool": {
-                "id": "[concat(resourceId('Microsoft.Network/loadBalancers','es-internal-lb'),'/backendAddressPools/LBBE')]"
+                "id": "[concat(resourceId('Microsoft.Network/loadBalancers','comvita-es-internal-lb'),'/backendAddressPools/LBBE')]"
               },
               "protocol": "Tcp",
               "frontendPort": 9300,

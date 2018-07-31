@@ -47,12 +47,12 @@
       "No": "empty/empty-jumpbox-resources.json",
       "Yes": "machines/jumpbox-resources.json"
     },
-    "jumpboxTemplateUrl": "[concat(parameters('templateBaseUrl'), variables('jumpboxTemplates')[parameters('topologySettings').jumpbox])]",
+    "jumpboxTemplateUrl": "[concat(parameters('templateBaseUrl'), 'machines/jumpbox-resources.json')]",
     "kibanaTemplates": {
       "No": "empty/empty-kibana-resources.json",
       "Yes": "machines/kibana-resources.json"
     },
-    "kibanaTemplateUrl": "[concat(parameters('templateBaseUrl'), variables('kibanaTemplates')[parameters('topologySettings').kibana])]",
+    "kibanaTemplateUrl": "[concat(parameters('templateBaseUrl'), 'machines/kibana-resources.json')]",
     "dataTemplateUrl": "[concat(parameters('templateBaseUrl'), 'machines/data-nodes-resources.json')]",
     "locations": {
       "eastus": {
@@ -211,8 +211,7 @@
   },
   "resources": [
     {
-      "condition": "[equals(parameters('topologySettings').dataNodesAreMasterEligible, 'No')]",
-      "name": "master-nodes",
+      "name": "comvita-master-nodes",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
       "dependsOn": [],
@@ -248,7 +247,7 @@
     },
     {
       "condition": "[greater(parameters('topologySettings').vmClientNodeCount, 0)]",
-      "name": "client-nodes",
+      "name": "comvita-client-nodes",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
       "dependsOn": [],
@@ -283,7 +282,7 @@
       }
     },
     {
-      "name": "data-nodes",
+      "name": "comvita-data-nodes",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
       "dependsOn": [],
@@ -321,7 +320,7 @@
       }
     },
     {
-      "name": "jumpbox",
+      "name": "comvita-es-jumpbox",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
       "dependsOn": [],
@@ -360,7 +359,7 @@
       }
     },
     {
-      "name": "kibana",
+      "name": "comvita-kibana",
       "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
       "dependsOn": [],

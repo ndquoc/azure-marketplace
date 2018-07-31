@@ -165,7 +165,7 @@
     {
       "apiVersion": "2017-12-01",
       "type": "Microsoft.Compute/virtualMachines",
-      "name": "[parameters('namespace')]",
+      "name": "[concat(parameters('namespace'), '-kibana-vm')]",
       "location": "[parameters('location')]",
       "tags": {
         "provider": "[toUpper(parameters('elasticTags').provider)]"
@@ -204,7 +204,7 @@
           "apiVersion": "2017-12-01",
           "location": "[parameters('location')]",
           "dependsOn": [
-            "[concat('Microsoft.Compute/virtualMachines/', parameters('namespace'))]"
+            "[concat('Microsoft.Compute/virtualMachines/', parameters('namespace'), '-kibana-vm')]"
           ],
           "properties": "[parameters('osSettings').extensionSettings.kibana]"
         }

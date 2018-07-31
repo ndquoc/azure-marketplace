@@ -45,24 +45,16 @@
             "addressPrefix": "[parameters('networkSettings').applicationGatewaySubnet.addressPrefix]"
           }
         }
-      ],
-      [
-        {
-          "name": "[parameters('networkSettings').subnet.name]",
-          "properties": {
-            "addressPrefix": "[parameters('networkSettings').subnet.addressPrefix]"
-          }
-        }
       ]
     ],
-    "subnets": "[variables('subnetsOpts')[if(equals(parameters('loadBalancerType'), 'gateway'), 0, 1)]]"
+    "subnets": "[variables('subnetsOpts')]"
   },
   "resources": [
     {
       "apiVersion": "2017-10-01",
       "type": "Microsoft.Network/virtualNetworks",
       "name": "[parameters('networkSettings').name]",
-      "location": "[parameters('networkSettings').location]",
+      "location": "[resourceGroup().location]",
       "tags": {
         "provider": "[toUpper(parameters('elasticTags').provider)]"
       },
