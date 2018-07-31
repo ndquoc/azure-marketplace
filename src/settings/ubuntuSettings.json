@@ -196,7 +196,7 @@
   ],
   "outputs": {
     "jumpboxssh": {
-      "value": "[reference('elasticsearch-nodes').outputs.jumpboxssh.value]",
+      "value": "[reference('comvita-elasticsearch-nodes').outputs.jumpboxssh.value]",
       "type": "string"
     }
   }
