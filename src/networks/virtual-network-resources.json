@@ -45,6 +45,14 @@
             "addressPrefix": "[parameters('networkSettings').applicationGatewaySubnet.addressPrefix]"
           }
         }
+      ],
+      [
+        {
+          "name": "[parameters('networkSettings').subnet.name]",
+          "properties": {
+            "addressPrefix": "[parameters('networkSettings').subnet.addressPrefix]"
+          }
+        }
       ]
     ],
     "subnets": "[variables('subnetsOpts')]"
