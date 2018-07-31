@@ -64,7 +64,7 @@
   "variables": {
     "namespace": "[parameters('namespace')]",
     "subnetId": "[concat(resourceId('Microsoft.Network/virtualNetworks', parameters('networkSettings').name), '/subnets/', parameters('networkSettings').subnet.name)]",
-    "publicIpName": "[concat(variables('namespace'), '-ip')]",
+    "publicIpName": "[concat('comvita-es-kibana', '-ip')]",
     "securityGroupName": "[concat(variables('namespace'), '-nsg')]",
     "nicName": "[concat(variables('namespace'), '-nic')]",
     "password_osProfile": {
