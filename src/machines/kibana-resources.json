@@ -181,7 +181,7 @@
         "storageProfile": {
           "imageReference": "[parameters('osSettings').imageReference]",
           "osDisk": {
-            "name": "osdisk",
+            "name": "comvita-kibana-osdisk",
             "managedDisk": {
               "storageAccountType": "Standard_LRS"
             },
@@ -200,7 +200,7 @@
       "resources": [
         {
           "type": "Microsoft.Compute/virtualMachines/extensions",
-          "name": "[concat(variables('namespace'), '/script')]",
+          "name": "[concat(variables('namespace'), '/comvita-script')]",
           "apiVersion": "2017-12-01",
           "location": "[parameters('location')]",
           "dependsOn": [

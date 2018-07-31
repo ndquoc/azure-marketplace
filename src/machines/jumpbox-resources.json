@@ -175,7 +175,7 @@
         "storageProfile": {
           "imageReference": "[parameters('osSettings').imageReference]",
           "osDisk": {
-            "name": "osdisk",
+            "name": "comvita-jumpbox-osdisk",
             "managedDisk": {
               "storageAccountType": "Standard_LRS"
             },
