@@ -39,7 +39,7 @@
             "name": "LBFE",
             "properties": {
               "subnet": {
-                "id": "[concat(resourceId(parameters('networkSettings').resourceGroup, 'Microsoft.Network/virtualNetworks',parameters('networkSettings').name), '/subnets/', parameters('networkSettings').subnet.name)]"
+                "id": "[concat(resourceId('Microsoft.Network/virtualNetworks',parameters('networkSettings').name), '/subnets/', parameters('networkSettings').subnet.name)]"
               },
               "privateIPAddress": "[parameters('networkSettings').subnet.loadBalancerIp]",
               "privateIPAllocationMethod": "Static"
