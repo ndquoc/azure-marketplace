@@ -53,6 +53,7 @@
       "Yes": "machines/kibana-resources.json"
     },
     "kibanaTemplateUrl": "[concat(parameters('templateBaseUrl'), 'machines/kibana-resources.json')]",
+    "logstashTemplateUrl": "[concat(parameters('templateBaseUrl'), 'machines/logstash-resources.json')]",
     "dataTemplateUrl": "[concat(parameters('templateBaseUrl'), 'machines/data-nodes-resources.json')]",
     "locations": {
       "eastus": {
@@ -391,8 +392,44 @@
           "osSettings": {
             "value": "[parameters('osSettings')]"
           },
-          "vmSize": {
-            "value": "[parameters('topologySettings').vmSizeKibana]"
+          "elasticTags": {
+            "value": "[parameters('elasticTags')]"
+          }
+        }
+      }
+    },
+    {
+      "name": "comvita-logstash",
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2017-05-10",
+      "dependsOn": [],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "[variables('logstashTemplateUrl')]",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "templateBaseUrl": {
+            "value": "[parameters('templateBaseUrl')]"
+          },
+          "storageAccountName": {
+            "value": "[parameters('commonVmSettings').storageAccountName]"
+          },
+          "credentials": {
+            "value": "[parameters('commonVmSettings').credentials]"
+          },
+          "location": {
+            "value": "[parameters('commonVmSettings').location]"
+          },
+          "namespace": {
+            "value": "[concat(parameters('commonVmSettings').namespacePrefix, 'logstash')]"
+          },
+          "networkSettings": {
+            "value": "[parameters('networkSettings')]"
+          },
+          "osSettings": {
+            "value": "[parameters('osSettings')]"
           },
           "elasticTags": {
             "value": "[parameters('elasticTags')]"
