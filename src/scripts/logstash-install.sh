@@ -84,6 +84,7 @@ while getopts :v:u:S:c:K:L:h optname; do
       ;;
     K) #logstash keystore password
       LOGSTASH_KEYSTORE_PWD="${OPTARG}"
+      ;;
     h) #show help
       help
       exit 2
