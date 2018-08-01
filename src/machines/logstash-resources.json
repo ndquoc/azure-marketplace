@@ -157,7 +157,7 @@
                     "apiVersion": "2017-12-01",
                     "location": "[parameters('location')]",
                     "dependsOn": [
-                        "[concat('Microsoft.Compute/virtualMachines/', variables('namespace'), '-vm']"
+                        "[concat('Microsoft.Compute/virtualMachines/', variables('namespace'), '-vm')]"
                     ],
                     "properties": "[parameters('osSettings').extensionSettings.logstash]"
                 }
