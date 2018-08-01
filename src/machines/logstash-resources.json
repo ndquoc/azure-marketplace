@@ -98,9 +98,7 @@
             "tags": {
                 "provider": "[toUpper(parameters('elasticTags').provider)]"
             },
-            "dependsOn": [
-                
-            ],
+            "dependsOn": [],
             "properties": {
                 "ipConfigurations": [
                     {
@@ -153,7 +151,7 @@
             "resources": [
                 {
                     "type": "Microsoft.Compute/virtualMachines/extensions",
-                    "name": "[concat(variables('namespace'), '/comvita-script')]",
+                    "name": "[concat(variables('namespace'), '-vm', '/comvita-script')]",
                     "apiVersion": "2017-12-01",
                     "location": "[parameters('location')]",
                     "dependsOn": [
